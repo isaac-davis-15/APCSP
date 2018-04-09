@@ -10,3 +10,4 @@ Our Task is to make a program that can recive a mathmatical function then make t
 <br>2. Increment the first weight or weight(N) by .01 and run through all of the training data again; record the score. Then decrement the first weight by .02(This is to counteract the first increment to the weight, this overall results in a change of -.01 in the weight), then run through all the training data again after the decrement; record the score.
 <br>3. Based on the preformance of the network with the incremented or decremented weight, perminatly set the weight to the value of the best preforming network. If both networks preformed worst then the original, keep the weight the same and make no change. 
 <br>4. Move to the next weight in the network and repeat Step 2. Until you get to the last weight. 
+<br>5. Repeat Step 1. 
