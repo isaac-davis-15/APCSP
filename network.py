@@ -34,3 +34,5 @@ def initNetwork():
 
 def createNetwork():
 	initNetwork()
+
+def think()
