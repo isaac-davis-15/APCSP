@@ -7,6 +7,7 @@
 #
 import random as r
 import math
+import training
 #=======================================================================================================
 
 weights = []
@@ -34,13 +35,16 @@ def createNetwork():
 	initNetwork()
 
 def sigmoid(x):
-	return 1/(1 + math.exp(-x))
+	try:
+		return 1/(1 + math.exp(-x))
+	except OverflowError:
+		return float('inf')
 	
 def neuron(inputArr, weightArr):	
 	sum = 0
 	for i in range(int((len(inputArr) + len(weightArr))/2)):
 		cal = inputArr[i] * weightArr[i]
-		sum += cal
+		sum += cal	
 	return sigmoid(sum)
 	
 def think(xPoint, yPoint):
@@ -54,5 +58,12 @@ def think(xPoint, yPoint):
 	for i in range(6):
 		hiddenLayerWeights.append(weights[i])
 	#hidden Layer calculation
-	for i in range(numNuronsInLayer[1]):
-		hiddenLayerOuptput.append(neuron())
+	for i in range(0, 3):
+		inputedWeights = []
+		inputedWeights.append(hiddenLayerWeights[i])
+		inputedWeights.append(hiddenLayerWeights[i+3])
+		
+		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
+		hiddenLayerOuptput.append(neuronOutput)
+	
+	return neuron(hiddenLayerOuptput, weights[6:8])
