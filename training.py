@@ -2,7 +2,7 @@ import random
 
 x = []
 y = []
-somewhereobertherainbowwayuphigh = []
+pointClass = []
 numPoints = 100
 
 def makeRandomData():
@@ -17,9 +17,9 @@ def classifyData():
 	for i in range(int((len(x) + len(y))/2)):
 		aboveFunc = y[i] >= x[i]
 		if aboveFunc:
-			somewhereobertherainbowwayuphigh.append(1)
+			pointClass.append(1)
 		else:
-			somewhereobertherainbowwayuphigh.append(0)
+			pointClass.append(0)
 
 def generateTrainingData():			
 	makeRandomData()
