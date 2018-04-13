@@ -1,21 +1,23 @@
 import network
 import training
 import learning
+import time
+import os
 
 #Set up the Neural Network and Generate Training Data
 network.createNetwork()
 training.generateTrainingData()
-
-#Run the Network through all the training data
-#And get an initial score
-# for i in range(training.numPoints):
-	# above = "Negative"
-	
-	# x, y = training.getTrainingData(i)
-	
-	# if network.think(x, y) >= 0.5:
-		# above = "Positive"
-
-	# print("(" + str(training.x[i]) + ", " + str(training.y[i])+") " + str(training.pointClass[i]) + " | " + above)
-
-learning.scoreNetwork()	
+score = 0
+iderations = 0
+while 1==1:
+	for i in range(training.numPoints):
+		if network.think(i) >= 0.5 and training.pointClass[i]:
+			score += 1
+		elif network.think(i) < 0.5 and not training.pointClass[i]:
+			score += 1
+		iderations += 1
+		
+	print(score/iderations)
+	learning.trainNetwork()
+	#time.sleep(.1)
+	displayData()

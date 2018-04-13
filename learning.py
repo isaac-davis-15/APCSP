@@ -5,28 +5,41 @@ weights = network.weights
 score = 0
 
 def incrementWeight(index, inputScore):
-	weight[index] += (100 - inputScore) / 10	
+	weights[index] += 10
 
 def decrementWeight(index, inputScore):
-	weight[index] -= (100 - inputScore) / 10
+	weights[index] -= 10
 	
 def scoreNetwork():
 	global score
 	score = 0
 	
 	for i in range(training.numPoints):
-		x, y = training.getTrainingData(i)
-	
-		if network.think(x, y) >= 0.5 and training.pointClass[i]:
+		if network.think(i) >= 0.5 and training.pointClass[i]:
 			score += 100
 	return (score/training.numPoints)
 	
 def trainNetwork():
+	print("Test")
 	beforeScore = scoreNetwork()
+	incrementScore = 0
+	decrementScore = 0
 	
 	for i in range(len(weights)):
-		incrementWeight()
-		scoreNetwork()
-		decrementWeight() 
+		#Add an to weight i and test the output
+		#Then decrement the weight back to the original
+		incrementWeight(i, beforeScore)
+		incrementScore = scoreNetwork()
+		decrementWeight(i, beforeScore)
 		
+		#Do the same as above but subtracting
+		decrementWeight(i, beforeScore)
+		decrementScore = scoreNetwork()
+		incrementWeight(i, beforeScore)
 		
+		#compare if the network did better with
+		#incremented weights or decremented weights
+		if incrementScore > beforeScore:
+			incrementWeight(i, beforeScore)
+		elif decrementScore > beforeScore:
+			decrementWeight(i, beforeScore)

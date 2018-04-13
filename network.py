@@ -19,7 +19,7 @@ def setupWeights(num):
 	global weights
 
 	for i in range(num):
-		weights.append(r.randint(-50, 50))
+		weights.append(r.randint(-5, 5))
 	
 def initNetwork():
 	global numOfWeights
@@ -36,9 +36,15 @@ def createNetwork():
 
 def sigmoid(x):
 	try:
-		return 1/(1 + math.exp(-x))
+		if x >= 50:
+			return 1
+		elif x <= -50:
+			return 0
+		else:
+			return 1/(1 + math.exp(-x))
 	except OverflowError:
-		return float('inf')
+		print("Give up on your programing Carear")
+		exit()
 	
 def neuron(inputArr, weightArr):	
 	sum = 0
@@ -47,12 +53,14 @@ def neuron(inputArr, weightArr):
 		sum += cal	
 	return sigmoid(sum)
 	
-def think(xPoint, yPoint):
+def think(index):
 	global numNuronsInLayer
 	global weights 
 	
+	x, y = training.getTrainingData(index)
+	
 	#setting up the hiddenLayer
-	hiddenLayerInput = [xPoint, yPoint]
+	hiddenLayerInput = [x, y]
 	hiddenLayerOuptput = []
 	hiddenLayerWeights = []
 	for i in range(6):
