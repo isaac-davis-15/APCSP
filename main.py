@@ -21,4 +21,4 @@ while 1==1:
 	print(score/iderations)
 	learning.trainNetwork()
 	#time.sleep(.1)
-	userinput.displayData()
+	
