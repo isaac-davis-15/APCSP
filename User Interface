@@ -1,4 +1,5 @@
 import training
+import main
 import learning
 import network
 import os
@@ -11,5 +12,5 @@ rangeY = int(input("What is the range of the graph on the Y-axis? "))
 
 def displayData
   print("This is the real time update of the weights the program is running through." + str(network.weights))
-  print(learning.scoreNetwork)
+  print("This is the current score of our point classifyer. In just a few minutes you will have your answerlearning.scoreNetwork)
   time.sleep(.5)
