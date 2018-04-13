@@ -3,6 +3,7 @@ import training
 import learning
 import time
 import os
+import userinput
 
 #Set up the Neural Network and Generate Training Data
 network.createNetwork()
@@ -20,4 +21,4 @@ while 1==1:
 	print(score/iderations)
 	learning.trainNetwork()
 	#time.sleep(.1)
-	displayData()
+	userinput.displayData()
