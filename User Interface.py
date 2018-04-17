@@ -10,7 +10,7 @@ function = input("Function of graph? Y= ")
 rangeX = int(input("What is the range of the graph on the X-axis? "))
 rangeY = int(input("What is the range of the graph on the Y-axis? "))
 
-def displayData
+def displayData (weights,score)
 	print("This is the curent set of the weights the program is running through." + str(network.weights))
 	print("This is the current score of our point classifyer. In just a few minutes you will have your answer:" learning.scoreNetwork)
 	print("This is the current closest the program has come to finding your function on the x-axis: " + str(training.x))
