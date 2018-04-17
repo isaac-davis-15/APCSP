@@ -1,6 +1,7 @@
 import network
 import training
 import learning
+import interface
 import time
 import os
 
@@ -17,10 +18,6 @@ while 1==1:
 			score += 1
 		iderations += 1
 		
-	print("Score: " + str(round(score/iderations, 2)))
-	print("Weights: " + str(network.weights))
-	print("Thinking...")
+	interface.displayData(network.weights, (score/iderations))
 	learning.trainNetwork()
-	time.sleep(1)
 	os.system("cls")
-	 
