@@ -1,4 +1,5 @@
 import random 
+import interface
 
 x = []
 y = []
@@ -12,6 +13,8 @@ def makeRandomData():
 	for i in range(numPoints):
 		x.append(random.randint(-50,50))
 		y.append(random.randint(-50,50))
+#rangeX
+#rangeY
 
 def classifyData():
 	for i in range(int((len(x) + len(y))/2)):
