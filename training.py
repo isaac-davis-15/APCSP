@@ -4,17 +4,15 @@ import interface
 x = []
 y = []
 pointClass = []
-numPoints = 100
+numPoints = 100 #interface.numPoints
 
 def makeRandomData():
 	global x
 	global y
 
 	for i in range(numPoints):
-		x.append(random.randint(-50,50))
-		y.append(random.randint(-50,50))
-#rangeX
-#rangeY
+		x.append(random.randint(-50,50))#rangeX
+		y.append(random.randint(-50,50))#rangeY
 
 def classifyData():
 	for i in range(int((len(x) + len(y))/2)):
