@@ -11,7 +11,7 @@ rangeX = int(input("What is the range of the graph on the X-axis? "))
 rangeY = int(input("What is the range of the graph on the Y-axis? "))
 
 def displayData
-  print("This is the real time update of the weights the program is running through." + str(network.weights))
-  print("This is the current score of our point classifyer. In just a few minutes you will have your answer:" learning.scoreNetwork)
-  print("The scores will update every .5 seconds")
-  time.sleep(.5)
+	print("This is the real time update of the weights the program is running through." + str(network.weights))
+	print("This is the current score of our point classifyer. In just a few minutes you will have your answer:" learning.scoreNetwork)
+	print("The scores will update every .5 seconds")
+    time.sleep(.5)

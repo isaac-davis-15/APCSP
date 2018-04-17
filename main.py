@@ -18,7 +18,10 @@ while 1==1:
 			score += 1
 		iderations += 1
 		
-	print(score/iderations)
+	print("Score: " + str(score/iderations))
+	print("Weights: " + str(network.weights))
+	time.sleep(.1)
+	os.system("cls")
 	learning.trainNetwork()
-	#time.sleep(.1)
 	
+	 

@@ -17,7 +17,8 @@ numOfWeights = 0
 
 def setupWeights(num):
 	global weights
-
+	
+	weights = []
 	for i in range(num):
 		weights.append(r.randint(-5, 5))
 	
