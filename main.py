@@ -3,7 +3,6 @@ import training
 import learning
 import time
 import os
-import userinput
 
 #Set up the Neural Network and Generate Training Data
 network.createNetwork()
@@ -18,10 +17,10 @@ while 1==1:
 			score += 1
 		iderations += 1
 		
-	print("Score: " + str(score/iderations))
+	print("Score: " + str(round(score/iderations, 2)))
 	print("Weights: " + str(network.weights))
-	time.sleep(.1)
-	os.system("cls")
+	print("Thinking...")
 	learning.trainNetwork()
-	
+	time.sleep(1)
+	os.system("cls")
 	 

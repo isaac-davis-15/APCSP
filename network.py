@@ -20,7 +20,8 @@ def setupWeights(num):
 	
 	weights = []
 	for i in range(num):
-		weights.append(r.randint(-5, 5))
+		randomWeight = r.uniform(-5, 5)
+		weights.append(round(r.uniform(-5, 5), 3))
 	
 def initNetwork():
 	global numOfWeights

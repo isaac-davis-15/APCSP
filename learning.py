@@ -21,11 +21,17 @@ def scoreNetwork():
 	
 def trainNetwork():
 	score = 0 
-	newWeights = 0
+	newScore = 0
 	for i in range(training.numPoints):
 		if network.think(i) >= 0.5 and training.pointClass[i]:
 			score += 1
 		elif network.think(i) < 0.5 and not training.pointClass[i]:
 			score += 1
-	while newWeights < score
-	network.setupWeights(network.numOfWeights)
+	while newScore < score:
+		newScore = 0
+		network.setupWeights(network.numOfWeights)
+		for i in range(training.numPoints):
+			if network.think(i) >= 0.5 and training.pointClass[i]:
+				newScore += 1
+			elif network.think(i) < 0.5 and not training.pointClass[i]:
+				newScore += 1
