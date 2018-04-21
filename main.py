@@ -18,6 +18,9 @@ while 1==1:
 			score += 1
 		iderations += 1
 		
-	interface.displayData(network.weights, (score/iderations))
+	interface.displayDat(network.weights, round(score/iderations, 3))
 	learning.trainNetwork()
 	os.system("cls")
+	
+	if (iderations % 1000) == 0:
+		training.generateTrainingData()

@@ -1,5 +1,4 @@
 import random 
-import interface
 
 x = []
 y = []

@@ -14,6 +14,7 @@ weights = []
 numNuronsInLayer = [2, 3, 1]
 numOfLayers = len(numNuronsInLayer)
 numOfWeights = 0
+hiddenLayerOuptput = []
 
 def setupWeights(num):
 	global weights
@@ -58,7 +59,7 @@ def neuron(inputArr, weightArr):
 def think(index):
 	global numNuronsInLayer
 	global weights 
-	
+	global hiddenLayerOuptput
 	x, y = training.getTrainingData(index)
 	
 	#setting up the hiddenLayer
@@ -74,6 +75,6 @@ def think(index):
 		inputedWeights.append(hiddenLayerWeights[i+3])
 		
 		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
-		hiddenLayerOuptput.append(neuronOutput)
+		hiddenLayerOuptput.append(round(neuronOutput, 2))
 	
 	return neuron(hiddenLayerOuptput, weights[6:8])
