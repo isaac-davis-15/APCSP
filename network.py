@@ -46,7 +46,7 @@ def sigmoid(x):
 		else:
 			return 1/(1 + math.exp(-x))
 	except OverflowError:
-		print("Give up on your programing Carear")
+		print("Over Flow error in sigmoid function")
 		exit()
 	
 def neuron(inputArr, weightArr):	
