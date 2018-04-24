@@ -54,7 +54,7 @@ def neuron(inputArr, weightArr):
 	for i in range(int((len(inputArr) + len(weightArr))/2)):
 		cal = inputArr[i] * weightArr[i]
 		sum += cal	
-	return sigmoid(sum)
+	return sum
 	
 def think(index):
 	global numNuronsInLayer
@@ -74,7 +74,7 @@ def think(index):
 		inputedWeights.append(hiddenLayerWeights[i])
 		inputedWeights.append(hiddenLayerWeights[i+3])
 		
-		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
+		neuronOutput = sigmoid(neuron(hiddenLayerInput, inputedWeights))
 		hiddenLayerOuptput.append(round(neuronOutput, 2))
 	
-	return neuron(hiddenLayerOuptput, weights[6:8])
+	return sigmoid(neuron(hiddenLayerOuptput, weights[6:8]))
