@@ -78,3 +78,25 @@ def think(index):
 		hiddenLayerOuptput.append(round(neuronOutput, 2))
 	
 	return neuron(hiddenLayerOuptput, weights[6:8])
+
+def thinkPoints(x, y):
+	global numNuronsInLayer
+	global weights 
+	global hiddenLayerOuptput
+	
+	#setting up the hiddenLayer
+	hiddenLayerInput = [x, y]
+	hiddenLayerOuptput = []
+	hiddenLayerWeights = []
+	for i in range(6):
+		hiddenLayerWeights.append(weights[i])
+	#hidden Layer calculation
+	for i in range(0, 3):
+		inputedWeights = []
+		inputedWeights.append(hiddenLayerWeights[i])
+		inputedWeights.append(hiddenLayerWeights[i+3])
+		
+		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
+		hiddenLayerOuptput.append(round(neuronOutput, 2))
+	
+	return neuron(hiddenLayerOuptput, weights[6:8])	

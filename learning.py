@@ -1,5 +1,8 @@
 import network
 import training
+import interface
+import time
+import os
 
 weights = network.weights
 score = 0
@@ -22,6 +25,7 @@ def scoreNetwork():
 def trainNetwork():
 	score = 0 
 	newScore = 0
+	trainIdderation = 0 
 	for i in range(training.numPoints):
 		if network.think(i) >= 0.5 and training.pointClass[i]:
 			score += 1
@@ -35,3 +39,11 @@ def trainNetwork():
 				newScore += 1
 			elif network.think(i) < 0.5 and not training.pointClass[i]:
 				newScore += 1
+		if(trainIdderation % 15 == 0):
+			os.system("cls")
+			interface.displayCurDat(network.weights, (newScore/training.numPoints)*100)
+			training.generateTrainingData()
+		trainIdderation += 1	
+	os.system("cls")
+
+		
