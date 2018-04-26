@@ -46,7 +46,7 @@ def sigmoid(x):
 		else:
 			return 1/(1 + math.exp(-x))
 	except OverflowError:
-		print("Give up on your programing Carear")
+		print("Over Flow error in sigmoid function")
 		exit()
 	
 def neuron(inputArr, weightArr):	
@@ -54,7 +54,7 @@ def neuron(inputArr, weightArr):
 	for i in range(int((len(inputArr) + len(weightArr))/2)):
 		cal = inputArr[i] * weightArr[i]
 		sum += cal	
-	return sigmoid(sum)
+	return sum
 	
 def think(index):
 	global numNuronsInLayer
@@ -74,10 +74,10 @@ def think(index):
 		inputedWeights.append(hiddenLayerWeights[i])
 		inputedWeights.append(hiddenLayerWeights[i+3])
 		
-		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
+		neuronOutput = sigmoid(neuron(hiddenLayerInput, inputedWeights))
 		hiddenLayerOuptput.append(round(neuronOutput, 2))
 	
-	return neuron(hiddenLayerOuptput, weights[6:8])
+	return sigmoid(neuron(hiddenLayerOuptput, weights[6:8]))
 
 def thinkPoints(x, y):
 	global numNuronsInLayer
@@ -98,5 +98,4 @@ def thinkPoints(x, y):
 		
 		neuronOutput = neuron(hiddenLayerInput, inputedWeights)
 		hiddenLayerOuptput.append(round(neuronOutput, 2))
-	
-	return neuron(hiddenLayerOuptput, weights[6:8])	
+	return sigmoid(neuron(hiddenLayerOuptput, weights[6:8]))
